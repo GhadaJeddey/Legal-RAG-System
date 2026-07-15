@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -nE \"^Article [0-9]|^#+.*Article|^Art\\\\.|^Article$\" data/output/document.md)",
+      "Bash(grep -nE \"^#{1,6} .*\\(Titre|Chapitre|Section|Livre\\)\" data/output/document.md)",
+      "Bash(grep -oE \"^#{1,6}\" data/output/document.md)",
+      "Bash(grep -oE \"^#{1,6} .{0,40}\" data/output/document.md)",
+      "Bash(python3 -c \"import torch; print\\('cuda:', torch.cuda.is_available\\(\\)\\)\")",
+      "Bash(python3 -c \"import sentence_transformers\")",
+      "Bash(python3 -c \"import nltk\")",
+      "Bash(python3 -m pip list)",
+      "Bash(pip --version)",
+      "Bash(python3 -c \"import sentence_transformers; print\\(sentence_transformers.__version__\\)\")",
+      "Bash(python3 run_chunking.py)"
+    ]
+  }
+}

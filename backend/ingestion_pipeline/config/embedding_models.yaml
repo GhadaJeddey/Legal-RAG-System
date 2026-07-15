@@ -1,0 +1,64 @@
+# Candidate embedding models under evaluation for this pipeline.
+#
+# provider:
+#   sentence_transformers - loaded locally via SentenceTransformer(name)
+#   openai                - called via the OpenAI embeddings API (needs OPENAI_API_KEY)
+#
+# roles: which evaluation(s) this model should be run through.
+#   segmentation - eval/segmentation_metrics.py (chunk boundary quality)
+#   retrieval    - query -> chunk recall/MRR eval (not yet built)
+#
+# current: the model currently wired into run_chunking.py / ArticleChunker.
+
+models:
+  - name: BAAI/bge-m3
+    provider: sentence_transformers
+    dimension: 1024
+    roles: [segmentation, retrieval]
+    current: true
+    notes: >
+      Strong multilingual coverage, supports dense/sparse/colbert.
+      Self-hosted, no per-call cost.
+
+  - name: intfloat/multilingual-e5-large
+    provider: sentence_transformers
+    dimension: 1024
+    roles: [segmentation, retrieval]
+    current: false
+    notes: >
+      Competitive multilingual baseline, worth comparing against bge-m3.
+
+  - name: dangvantuan/sentence-camembert-large
+    provider: sentence_transformers
+    dimension: 1024
+    roles: [segmentation, retrieval]
+    current: false
+    notes: >
+      French-specific (CamemBERT-based), no multilingual support needed
+      since the corpus is French-only legal/regulatory text.
+
+  - name: OrdalieTech/Solon-embeddings-large-0.1
+    provider: sentence_transformers
+    dimension: 1024
+    roles: [segmentation, retrieval]
+    current: false
+    notes: >
+      French-specific, tuned for retrieval; newer than camembert-large.
+
+  - name: text-embedding-3-large
+    provider: openai
+    dimension: 3072
+    roles: [retrieval]
+    current: false
+    notes: >
+      API-based, no self-hosting/GPU cost, but per-token pricing and
+      external latency/dependency. openai package already a dependency.
+
+  - name: text-embedding-3-small
+    provider: openai
+    dimension: 1536
+    roles: [retrieval]
+    current: false
+    notes: >
+      Cheaper/faster OpenAI option, likely a lower bound for quality
+      comparison rather than a serious candidate.
