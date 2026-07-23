@@ -4,13 +4,14 @@ Embed each chunk in data/output/chunks-<model>.json and store it in Postgres/pgv
 Usage:
     python store_chunks.py
 """
+
 import json
 import os
 from pathlib import Path
 
-import psycopg
+import psycopg  # driver postgres qui permet la cnx de python à postgres
 from dotenv import load_dotenv
-from pgvector.psycopg import register_vector
+from pgvector.psycopg import register_vector # convertit un vecteur numpy en type 'vector' de Postegres ( et inversement)
 
 from config.embedding_models import get_current_model
 
@@ -33,7 +34,6 @@ def main():
     chunks = json.loads(chunks_path.read_text(encoding="utf-8"))
     print(f"Loaded {len(chunks)} chunks from {chunks_path}")
 
-    print(f"Loading {model_config['name']} ...")
     from sentence_transformers import SentenceTransformer
     model = SentenceTransformer(model_config["name"])
 
@@ -49,9 +49,18 @@ def main():
                 cur.execute(
                     """
                     INSERT INTO chunks
-                        (text, article_number, article_title, breadcrumb,
+                        (text_content, article_number, article_title, breadcrumb,
                          sub_chunk, sub_chunk_total, token_count, model_name, embedding)
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (breadcrumb, article_number, (COALESCE(sub_chunk, -1)), model_name)
+                    DO UPDATE SET
+                        text_content = EXCLUDED.text_content,
+                        article_title = EXCLUDED.article_title,
+                        breadcrumb = EXCLUDED.breadcrumb,
+                        sub_chunk_total = EXCLUDED.sub_chunk_total,
+                        token_count = EXCLUDED.token_count,
+                        embedding = EXCLUDED.embedding,
+                        created_at = now()
                     """,
                     (
                         chunk["text"],

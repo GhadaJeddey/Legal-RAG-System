@@ -1,0 +1,72 @@
+[
+  {
+    "id": "q01",
+    "question": "Qu'est-ce qu'un actif selon le PCG ?",
+    "expected_articles": ["211-1"]
+  },
+  {
+    "id": "q02",
+    "question": "Comment le PCG definit-il un passif ?",
+    "expected_articles": ["321-1"]
+  },
+  {
+    "id": "q03",
+    "question": "Quelle est la definition d'une provision ?",
+    "expected_articles": ["321-5"]
+  },
+  {
+    "id": "q04",
+    "question": "Qu'est-ce que la depreciation d'un actif ?",
+    "expected_articles": ["214-5"]
+  },
+  {
+    "id": "q05",
+    "question": "Quelles sont les regles d'amortissement des immobilisations ?",
+    "expected_articles": ["214-13"]
+  },
+  {
+    "id": "q06",
+    "question": "Qu'est-ce qu'une immobilisation incorporelle ?",
+    "expected_articles": ["211-5"]
+  },
+  {
+    "id": "q07",
+    "question": "Comment definir une immobilisation corporelle ?",
+    "expected_articles": ["211-6"]
+  },
+  {
+    "id": "q08",
+    "question": "Comment est comptabilise un contrat de credit-bail ?",
+    "expected_articles": ["212-5"]
+  },
+  {
+    "id": "q09",
+    "question": "Comment le chiffre d'affaires est-il defini dans le PCG ?",
+    "expected_articles": ["512-2"]
+  },
+  {
+    "id": "q10",
+    "question": "Que comprennent les charges d'une entite ?",
+    "expected_articles": ["511-2"]
+  },
+  {
+    "id": "q11",
+    "question": "Que comprennent les produits d'une entite ?",
+    "expected_articles": ["512-1"]
+  },
+  {
+    "id": "q12",
+    "question": "Comment sont traites les ecarts de conversion des liquidites en devises ?",
+    "expected_articles": ["420-7"]
+  },
+  {
+    "id": "q13",
+    "question": "Quelle est la recette de la tarte tatin ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q14",
+    "question": "Quelle est la capitale de l'Australie ?",
+    "expected_articles": []
+  }
+]

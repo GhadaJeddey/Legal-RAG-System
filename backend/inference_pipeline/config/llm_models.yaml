@@ -1,0 +1,14 @@
+# Candidate LLM providers/models for answer generation.
+#
+# provider:
+#   groq - OpenAI-compatible API, free tier (https://console.groq.com), needs GROQ_API_KEY
+#
+# current: the model currently wired into generator.py
+
+models:
+  - name: llama-3.3-70b-versatile
+    provider: groq
+    current: true
+    notes: >
+      Free tier on Groq, strong general-purpose instruction following,
+      good multilingual/French support for MVP generation.
