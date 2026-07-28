@@ -62,16 +62,6 @@
   justify-content: flex-start;
 }
 
-.avatar {
-  font-size: 20px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.message.user .avatar {
-  order: 2;
-}
-
 .bubble {
   max-width: 78%;
   padding: 0.65rem 0.95rem;

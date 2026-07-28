@@ -35,6 +35,7 @@ def build_messages(query: str, chunks: list[dict]) -> list[dict]:
         f"Contexte:\n{context}\n\n"
         f"Question: {query}"
     )
+    
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": user_prompt},

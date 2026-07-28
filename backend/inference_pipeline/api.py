@@ -5,12 +5,22 @@ Usage:
 """
 import json
 import os
+import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 import asyncpg
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from openai import AsyncOpenAI
+
+sys.path.append(str(Path(__file__).resolve().parent.parent / "ingestion_pipeline"))
+
+from config.embedding_models import get_current_model as get_current_embedding_model
+from config.llm_models import get_current_model as get_current_llm_model
+from generator import GROQ_BASE_URL
 
 from rag_pipeline import answer_query
 
@@ -34,6 +44,14 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="PCG RAG Inference API", lifespan=lifespan)
 
+# Local dev only: the Vite frontend runs on a different origin (localhost:5173).
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 class QueryRequest(BaseModel):
     query: str
@@ -52,6 +70,70 @@ class QueryResponse(BaseModel):
     sources: list[Source]
 
 
+def _check_embedding_model() -> dict:
+    model_config = get_current_embedding_model()
+    if model_config["provider"] != "sentence_transformers":
+        return {
+            "ok": False,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+            "error": f"Unsupported provider: {model_config['provider']}",
+        }
+
+    try:
+        from sentence_transformers import SentenceTransformer
+
+        SentenceTransformer(model_config["name"])
+        return {
+            "ok": True,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+            "error": str(exc),
+        }
+
+
+def _check_llm_model() -> dict:
+    model_config = get_current_llm_model()
+    api_key = os.environ.get("GROQ_API_KEY")
+
+    if model_config["provider"] != "groq":
+        return {
+            "ok": False,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+            "error": f"Unsupported provider: {model_config['provider']}",
+        }
+
+    if not api_key:
+        return {
+            "ok": False,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+            "error": "GROQ_API_KEY is missing",
+        }
+
+    try:
+        AsyncOpenAI(api_key=api_key, base_url=GROQ_BASE_URL)
+        return {
+            "ok": True,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "model": model_config["name"],
+            "provider": model_config["provider"],
+            "error": str(exc),
+        }
+
+
 @app.post("/query", response_model=QueryResponse)
 async def query(request: QueryRequest) -> QueryResponse:
     result = await answer_query(
@@ -64,4 +146,12 @@ async def query(request: QueryRequest) -> QueryResponse:
 
 @app.get("/health")
 async def health():
-    return {"status": "ok"}
+    embedding = _check_embedding_model()
+    llm = _check_llm_model()
+    healthy = embedding["ok"] and llm["ok"]
+
+    return {
+        "status": "ok" if healthy else "degraded",
+        "embedding_model": embedding,
+        "llm": llm,
+    }

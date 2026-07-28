@@ -1,14 +1,78 @@
 # Candidate LLM providers/models for answer generation.
-#
-# provider:
-#   groq - OpenAI-compatible API, free tier (https://console.groq.com), needs GROQ_API_KEY
-#
-# current: the model currently wired into generator.py
+# All entries below run via Groq's hosted API in this project, not locally.
+# generator.py only supports provider: groq, so switching `current` changes which
+
 
 models:
   - name: llama-3.3-70b-versatile
     provider: groq
     current: true
+    context_window: 128K tokens
+    open_weight: true
     notes: >
-      Free tier on Groq, strong general-purpose instruction following,
-      good multilingual/French support for MVP generation.
+      Current default. Strong general-purpose instruction following, good
+      multilingual/French support. Dense model, not MoE, so "70B" is the
+      actual compute cost per token -- more than this grounded-QA task
+      likely needs.
+
+  - name: llama-3.1-8b-instant
+    provider: groq
+    current: false
+    context_window: 128K tokens
+    open_weight: true
+    notes: >
+      Smallest/fastest candidate. Worth testing as a lower bound: if it already
+      hits the eval's recall/citation targets, there's no reason to pay for a
+      bigger model in production. Risk: may be weaker on nuanced French legal
+      phrasing than the 70B/MoE options.
+
+  - name: openai/gpt-oss-20b
+    provider: groq
+    current: false
+    context_window: 128K tokens
+    open_weight: true
+    notes: >
+      OpenAI's first open-weight release. MoE efficiency means strong
+      instruction-following without paying full dense-70B compute cost.
+      Good middle-ground candidate between llama-3.1-8b and llama-3.3-70b.
+
+  - name: openai/gpt-oss-120b
+    provider: groq
+    current: false
+    context_window: 128K tokens
+    open_weight: true
+    notes: >
+      Larger sibling of gpt-oss-20b. Fallback if the 20B underperforms on
+      quality, still MoE-efficient relative to a dense model of similar size.
+
+  - name: moonshotai/kimi-k2-instruct
+    provider: groq
+    current: false
+    context_window: 128K+ tokens
+    open_weight: true
+    notes: >
+      Built for grounded/agentic tasks rather than creative generation, which
+      fits this RAG use case well. Large MoE scale without paying full dense
+      cost, but only accessible here via Groq's hosted API.
+
+  - name: deepseek-r1-distill-llama-70b
+    provider: groq
+    current: false
+    context_window: 128K tokens
+    open_weight: true
+    notes: >
+      Reasoning model -- produces chain-of-thought before answering. Likely
+      overkill (slower, verbose) for simple single-article lookups, but worth
+      testing specifically on the multi-article synthesis eval cases (q15-q20)
+      where reasoning across two articles at once may help.
+
+  - name: gemma2-9b-it
+    provider: groq
+    current: false
+    context_window: 8K tokens
+    open_weight: true
+    notes: >
+      Excluded from real candidates despite being light and fast: 8K context
+      window is too small once packing system prompt + several French legal
+      chunks + citations, especially once top_k grows with reranking. Kept
+      here for reference, not recommended to test.

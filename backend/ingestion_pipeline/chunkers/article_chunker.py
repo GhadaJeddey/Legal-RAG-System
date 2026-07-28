@@ -4,9 +4,10 @@ Article-level semantic chunker.
 Strategy:
 1. Structural Split : split by article-level + recording metadata per article ( section , title , chapter ...)
 2. Semantic Split : If article is longer than a threshholt , it is split semantically 
-"""
-import re
 
+"""
+
+import re
 from .base import Chunker
 
 HEADER_RE = re.compile(r'^(#{1,6})\s+(.*)$')
@@ -23,7 +24,7 @@ _SENTENCE_SPLIT_RE = re.compile(
 DEFAULT_MAX_TOKENS = 350  # articles above this get sub-split
 MIN_FRAGMENT_TOKENS = 50
 BREAKPOINT_PERCENTILE = 90
-
+DEFAULT_MERGE_TOLERANCE_TOKENS = 20
 
 def _split_sentences(text: str) -> list[str]:
     text = text.strip()
@@ -36,6 +37,7 @@ def _split_sentences(text: str) -> list[str]:
 def _split_into_units(body: str) -> list[str]:
     """Split an article body into ordered units: sentences, with any
     markdown table kept as a single atomic unit."""
+    
     lines = body.split("\n")
     units: list[str] = []
     buffer: list[str] = []
@@ -49,6 +51,7 @@ def _split_into_units(body: str) -> list[str]:
             buffer.clear()
 
     def flush_table():
+        " a table is a single unit"
         if table_buffer:
             units.append("\n".join(table_buffer))
             table_buffer.clear()
@@ -67,8 +70,8 @@ def _split_into_units(body: str) -> list[str]:
             buffer.append(line)
     flush_table()
     flush_prose()
+    
     return units
-
 
 def _parse_articles(markdown: str) -> list[dict]:
     """Segment the document into article-level blocks with breadcrumb metadata."""
@@ -83,7 +86,7 @@ def _parse_articles(markdown: str) -> list[dict]:
     for line in lines:
         m = HEADER_RE.match(line)
         if m:
-            level = len(m.group(1))
+            level = len(m.group(1)) # It captures the Markdown heading marks (#, ##, ###, etc.) & turns it into heading depth.
             title = m.group(2).strip(" *")
 
             if is_article_header(title):
@@ -116,7 +119,6 @@ def _parse_articles(markdown: str) -> list[dict]:
 
     return articles
 
-
 class ArticleChunker(Chunker):
     def __init__(
         self,
@@ -124,11 +126,13 @@ class ArticleChunker(Chunker):
         max_tokens: int = DEFAULT_MAX_TOKENS,
         min_fragment_tokens: int = MIN_FRAGMENT_TOKENS,
         breakpoint_percentile: int = BREAKPOINT_PERCENTILE,
+        merge_tolerance_tokens: int = DEFAULT_MERGE_TOLERANCE_TOKENS,
     ):
         self.model = embedding_model
         self.max_tokens = max_tokens
         self.min_fragment_tokens = min_fragment_tokens
         self.breakpoint_percentile = breakpoint_percentile
+        self.merge_tolerance_tokens = merge_tolerance_tokens
 
     def _count_tokens(self, text: str) -> int:
         return len(self.model.tokenizer.encode(text, add_special_tokens=False))
@@ -143,6 +147,7 @@ class ArticleChunker(Chunker):
                 "article_number": article["article_number"],
                 "article_title": article["title"],
             }
+            
             if not article["body"]:
                 continue
 
@@ -176,18 +181,22 @@ class ArticleChunker(Chunker):
     def _semantic_sub_split(self, body: str) -> list[str]:
         import numpy as np
 
-        units = _split_into_units(body)
+        units = _split_into_units(body) # formée de unit = sentence or unit = table .
         if len(units) <= 1:
             return [body]
 
+        # a table is a single unit . multiple sentences can belong to a single unit 
         embeddings = self.model.encode(units, normalize_embeddings=True, show_progress_bar=False)
+        
         distances = [
             1 - float(np.dot(embeddings[i], embeddings[i + 1]))
             for i in range(len(embeddings) - 1)
         ]
+        
         threshold = float(np.percentile(distances, self.breakpoint_percentile)) if distances else 0.0
 
         groups: list[list[str]] = [[units[0]]]
+        
         boundary_distances: list[float] = []
         for i, d in enumerate(distances):
             if d > threshold:
@@ -198,14 +207,16 @@ class ArticleChunker(Chunker):
 
         merged = self._merge_small_groups(groups, boundary_distances)
         return ["\n".join(g).strip() for g in merged]
+    
 
     def _merge_small_groups(
         self, groups: list[list[str]], boundary_distances: list[float]
     ) -> list[list[str]]:
-        """Fold undersized groups into whichever neighbor is semantically
-        closer (smaller cosine distance at that boundary), never exceeding
-        max_tokens. Falls back to the other neighbor, or leaves the group
-        standalone, when the closer merge would blow the token ceiling."""
+        """Percentile splitting can sometimes create tiny groups 
+        (e.g., a single 10-token sentence) that are too small to be useful 
+        search chunks. This function absorbs small fragments into neighboring 
+        groups while respecting token limits.."""
+        
         groups = [list(g) for g in groups]
         boundary_distances = list(boundary_distances)
 
@@ -214,7 +225,7 @@ class ArticleChunker(Chunker):
             return self._count_tokens(text)
 
         def fits(a: int, b: int) -> bool:
-            return tokens_of(groups[a], groups[b]) <= self.max_tokens
+            return tokens_of(groups[a], groups[b]) <= self.max_tokens + self.merge_tolerance_tokens
 
         i = 0
         while i < len(groups):

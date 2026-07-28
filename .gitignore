@@ -6,6 +6,12 @@
 **/.claude/
 **/.claude
 
+# Secrets -- never commit real API keys / DB credentials
+**/.env
+
+# Python virtual environments
+**/venv/
+
 # Node / frontend (Vite)
 **/node_modules/
 frontend/dist

@@ -1,8 +1,7 @@
 """
 MVP1 parser - extraction texte + tableaux via pymupdf4llm, en un seul passage.
 Approche standard et entierement automatisee : pas de traitement particulier
-pour les tableaux complexes (rotation, cellules grisees, etc.), pymupdf4llm
-fait de son mieux et produit des tableaux Markdown.
+pour les tableaux complexes 
 """
 import pymupdf
 import pymupdf4llm

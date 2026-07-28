@@ -68,5 +68,35 @@
     "id": "q14",
     "question": "Quelle est la capitale de l'Australie ?",
     "expected_articles": []
+  },
+  {
+    "id": "q15",
+    "question": "Quelle est la difference entre l'amortissement et la depreciation d'un actif ?",
+    "expected_articles": ["214-13", "214-5"]
+  },
+  {
+    "id": "q16",
+    "question": "Comment le PCG definit-il les immobilisations corporelles et incorporelles ?",
+    "expected_articles": ["211-5", "211-6"]
+  },
+  {
+    "id": "q17",
+    "question": "Qu'est-ce qu'une dette et qu'est-ce qu'une provision dans la definition des passifs ?",
+    "expected_articles": ["321-4", "321-5"]
+  },
+  {
+    "id": "q18",
+    "question": "Que comprennent les charges et les produits d'une entite ?",
+    "expected_articles": ["511-2", "512-1"]
+  },
+  {
+    "id": "q19",
+    "question": "Comment sont converties et comptabilisees les creances et les dettes en monnaies etrangeres, ainsi que les liquidites en devises a la cloture ?",
+    "expected_articles": ["420-5", "420-7"]
+  },
+  {
+    "id": "q20",
+    "question": "Quelles sont les conditions d'inscription a l'actif d'une immobilisation et comment un contrat de credit-bail est-il comptabilise ?",
+    "expected_articles": ["212-1", "212-5"]
   }
 ]

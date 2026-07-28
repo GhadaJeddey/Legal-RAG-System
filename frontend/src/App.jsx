@@ -55,14 +55,12 @@ function App() {
       <div className="chat-window">
         {messages.length === 0 && !loading && (
           <div className="empty-state">
-            Pose une question sur le PCG pour commencer, par ex. « Qu'est-ce
-            qu'une immobilisation incorporelle ? »
+            Pose une question sur le Plan Comptable Général. 
           </div>
         )}
 
         {messages.map((m, i) => (
           <div key={i} className={`message ${m.role}`}>
-            <span className="avatar">{m.role === "user" ? "🧑" : m.role === "error" ? "⚠️" : "📘"}</span>
             <div className="bubble">
               <p>{m.text}</p>
               {m.sources && m.sources.length > 0 && (
@@ -80,7 +78,6 @@ function App() {
 
         {loading && (
           <div className="message assistant">
-            <span className="avatar">📘</span>
             <div className="bubble typing">
               <span className="dot" />
               <span className="dot" />

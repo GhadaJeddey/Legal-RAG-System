@@ -1,8 +1,7 @@
 """
-Dense retrieval: embed a query and fetch the closest chunks from Postgres/pgvector .
-
-
 The DB pool is created once at app startup and passed in here, rather than opened per call.
+
+pgvector's <=> operator computes cosine distance between the query embedding and the stored chunk embeddings, and we order by that distance to get the closest chunks.
 """
 
 import sys
@@ -42,6 +41,7 @@ async def retrieve(
     Top-k always returns k rows regardless of how distant they are, so results
     below min_similarity are dropped afterwards -- otherwise an unrelated query
     would still get handed the "closest" chunks even though none are relevant.
+    
     """
     model = get_query_embedder()
     embedding = model.encode(query, normalize_embeddings=True).tolist()
