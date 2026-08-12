@@ -60,6 +60,8 @@ class QueryRequest(BaseModel):
 
 
 class Source(BaseModel):
+    rank_bi: int
+    rank_cross: int | None
     article_number: str | None
     article_title: str | None
     similarity: float

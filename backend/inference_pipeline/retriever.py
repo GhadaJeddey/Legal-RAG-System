@@ -2,6 +2,8 @@
 The DB pool is created once at app startup and passed in here, rather than opened per call.
 
 pgvector's <=> operator computes cosine distance between the query embedding and the stored chunk embeddings, and we order by that distance to get the closest chunks.
+
+Retrieval via a bi-encoder ( bge ) using cosine similarity for scoring . 
 """
 
 import sys
@@ -30,19 +32,13 @@ def get_query_embedder():
     return _model
 
 
-MIN_SIMILARITY = 0.5  # top-k neighbors below this are treated as "not actually relevant"
+# We'll apply this later after the reranker to filter out veery irrelevant chunks that should be
+# answered with "Aucun extrait pertinent trouvé"
+MIN_SIMILARITY = 0.5
 
 
-async def retrieve(
-    pool: asyncpg.Pool, query: str, top_k: int = 5, min_similarity: float = MIN_SIMILARITY
-) -> list[dict]:
-    """Return the top_k chunks most similar to `query`, ordered by cosine distance.
-
-    Top-k always returns k rows regardless of how distant they are, so results
-    below min_similarity are dropped afterwards -- otherwise an unrelated query
-    would still get handed the "closest" chunks even though none are relevant.
-    
-    """
+async def retrieve(pool: asyncpg.Pool, query: str, top_k: int = 5) -> list[dict]:
+    """Return the top_k chunks most similar to `query`, ordered by cosine distance."""
     model = get_query_embedder()
     embedding = model.encode(query, normalize_embeddings=True).tolist()
 
@@ -63,6 +59,7 @@ async def retrieve(
 
     return [
         {
+            "rank_bi": rank,
             "text": row["text_content"],
             "article_number": row["article_number"],
             "article_title": row["article_title"],
@@ -71,6 +68,32 @@ async def retrieve(
             "sub_chunk_total": row["sub_chunk_total"],
             "similarity": float(row["similarity"]),
         }
+        for rank, row in enumerate(rows, start=1)
+    ]
+
+
+async def retrieve_all(pool: asyncpg.Pool) -> list[dict]:
+    """Return every chunk in the corpus, unranked (no embedding/similarity involved).
+
+    Used to feed the cross-encoder the whole corpus directly, to measure the
+    quality ceiling of cross-encoder-only scoring (no dense pre-filtering).
+    """
+    rows = await pool.fetch(
+        """
+        SELECT text_content, article_number, article_title, breadcrumb,
+               sub_chunk, sub_chunk_total
+        FROM chunks
+        """
+    )
+
+    return [
+        {
+            "text": row["text_content"],
+            "article_number": row["article_number"],
+            "article_title": row["article_title"],
+            "breadcrumb": row["breadcrumb"],
+            "sub_chunk": row["sub_chunk"],
+            "sub_chunk_total": row["sub_chunk_total"],
+        }
         for row in rows
-        if row["similarity"] >= min_similarity
     ]
