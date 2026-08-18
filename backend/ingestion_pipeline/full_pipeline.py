@@ -27,23 +27,22 @@ from config.embedding_models import get_current_model
 from parsers.markdown_parser import MarkdownParser
 
 PARSER = MarkdownParser()
-OUTPUT_DIR = Path("data/output")
+# Absolute, not cwd-relative: run_pipeline() can now be called from the API process
+# (cwd = backend/inference_pipeline), not just the CLI (cwd = backend/ingestion_pipeline).
+OUTPUT_DIR = Path(__file__).resolve().parent / "data" / "output"
 SCHEMA_PATH = Path(__file__).with_name("storage") / "schema.sql"
 
 
 def _validate_args(pdf_path: str, start_page: int | None, end_page: int | None) -> None:
     """valider les arguments saisis via cmd"""
     if not Path(pdf_path).exists():
-        print(f"Fichier introuvable: {pdf_path}")
-        sys.exit(1)
+        raise FileNotFoundError(f"Fichier introuvable: {pdf_path}")
 
     if start_page is not None and start_page < 1:
-        print("--start-page doit etre >= 1")
-        sys.exit(1)
+        raise ValueError("--start-page doit etre >= 1")
 
     if start_page is not None and end_page is not None and start_page > end_page:
-        print("--start-page ne peut pas etre superieur a --end-page")
-        sys.exit(1)
+        raise ValueError("--start-page ne peut pas etre superieur a --end-page")
 
 
 def _write_extracted_pages(pages: list[dict]) -> Path:
@@ -133,7 +132,7 @@ def _chunk_markdown(document_path: Path) -> tuple[list[dict], ArticleChunker, di
     return chunks, chunker, model_config
 
 
-def _store_chunks(chunks: list[dict], model_config: dict) -> None:
+def _store_chunks(chunks: list[dict], model_config: dict, document_id: int) -> None:
     load_dotenv()
     database_url = os.environ["DATABASE_URL"]
 
@@ -157,10 +156,10 @@ def _store_chunks(chunks: list[dict], model_config: dict) -> None:
                 cursor.execute(
                     """
                     INSERT INTO chunks
-                        (text_content, article_number, article_title, breadcrumb,
+                        (document_id, text_content, article_number, article_title, breadcrumb,
                          sub_chunk, sub_chunk_total, token_count, model_name, embedding)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (breadcrumb, article_number, (COALESCE(sub_chunk, -1)), model_name)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (document_id, breadcrumb, article_number, (COALESCE(sub_chunk, -1)), model_name)
                     DO UPDATE SET
                         text_content = EXCLUDED.text_content,
                         article_title = EXCLUDED.article_title,
@@ -171,6 +170,7 @@ def _store_chunks(chunks: list[dict], model_config: dict) -> None:
                         created_at = now()
                     """,
                     (
+                        document_id,
                         chunk["text"],
                         metadata["article_number"],
                         metadata["article_title"],
@@ -183,7 +183,57 @@ def _store_chunks(chunks: list[dict], model_config: dict) -> None:
                     ),
                 )
 
-    print(f"Inserted {len(chunks)} rows into 'chunks' (model={model_config['name']})")
+    print(f"Inserted {len(chunks)} rows into 'chunks' (model={model_config['name']}, document_id={document_id})")
+
+
+def _create_document(pdf_path: str) -> int:
+    """Insert a 'documents' row for a standalone CLI run and return its id."""
+    load_dotenv()
+    database_url = os.environ["DATABASE_URL"]
+
+    with psycopg.connect(database_url, autocommit=True) as connection:
+        connection.execute(SCHEMA_PATH.read_text(encoding="utf-8"))
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                INSERT INTO documents (filename, original_path, status)
+                VALUES (%s, %s, 'processing')
+                RETURNING id
+                """,
+                (Path(pdf_path).name, pdf_path),
+            )
+            return cursor.fetchone()[0]
+
+
+def _set_document_status(document_id: int, status: str) -> None:
+    load_dotenv()
+    database_url = os.environ["DATABASE_URL"]
+
+    with psycopg.connect(database_url, autocommit=True) as connection:
+        connection.execute(
+            "UPDATE documents SET status = %s WHERE id = %s", (status, document_id)
+        )
+
+
+def run_pipeline(
+    pdf_path: str,
+    document_id: int,
+    start_page: int | None = None,
+    end_page: int | None = None,
+) -> None:
+    """Parse -> chunk -> store a PDF for a given document_id. Raises on failure
+    (callers running this as a background task are responsible for catching)."""
+    _validate_args(pdf_path, start_page, end_page)
+
+    pages = PARSER.extract(pdf_path, start_page=start_page, end_page=end_page)
+    print(f"{len(pages)} pages extraites.")
+
+    if not pages:
+        raise ValueError("Aucune page extraite.")
+
+    document_path = _write_extracted_pages(pages)
+    chunks, _, model_config = _chunk_markdown(document_path)
+    _store_chunks(chunks, model_config, document_id)
 
 
 def main():
@@ -203,18 +253,15 @@ def main():
     )
     args = parser.parse_args()
 
-    _validate_args(args.pdf_path, args.start_page, args.end_page)
-
-    pages = PARSER.extract(args.pdf_path, start_page=args.start_page, end_page=args.end_page)
-    print(f"{len(pages)} pages extraites.")
-
-    if not pages:
-        print("Aucune page extraite.")
-        sys.exit(0)
-
-    document_path = _write_extracted_pages(pages)
-    chunks, _, model_config = _chunk_markdown(document_path)
-    _store_chunks(chunks, model_config)
+    document_id = _create_document(args.pdf_path)
+    try:
+        run_pipeline(args.pdf_path, document_id, start_page=args.start_page, end_page=args.end_page)
+    except Exception as exc:
+        _set_document_status(document_id, "failed")
+        print(f"Erreur: {exc}")
+        sys.exit(1)
+    else:
+        _set_document_status(document_id, "done")
 
 
 if __name__ == "__main__":

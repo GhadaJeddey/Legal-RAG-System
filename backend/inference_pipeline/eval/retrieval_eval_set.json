@@ -98,5 +98,293 @@
     "id": "q20",
     "question": "Quelles sont les conditions d'inscription a l'actif d'une immobilisation et comment un contrat de credit-bail est-il comptabilise ?",
     "expected_articles": ["212-1", "212-5"]
+  },
+  {
+    "id": "q21",
+    "question": "Quel est le meilleur restaurant gastronomique de Paris ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q22",
+    "question": "Comment programmer un jeu video en Python ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q23",
+    "question": "Quelle est la population actuelle de la Chine ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q24",
+    "question": "Comment reparer une fuite d'eau sous un evier ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q25",
+    "question": "Qui a peint la Joconde ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q26",
+    "question": "Quel temps fait-il a Tunis aujourd'hui ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q27",
+    "question": "Comment apprendre a jouer de la guitare rapidement ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q28",
+    "question": "Quelle est la vitesse de la lumiere dans le vide ?",
+    "expected_articles": []
+  },
+  {
+    "id": "q29",
+    "question": "Comment le PCG definit-il le principe d'image fidele en comptabilite ?",
+    "expected_articles": ["121-1"]
+  },
+  {
+    "id": "q30",
+    "question": "Qu'est-ce que le principe de prudence en comptabilite ?",
+    "expected_articles": ["121-4"]
+  },
+  {
+    "id": "q31",
+    "question": "Qu'est-ce qu'une methode comptable selon le PCG ?",
+    "expected_articles": ["121-5"]
+  },
+  {
+    "id": "q32",
+    "question": "Que recapitule le compte de resultat ?",
+    "expected_articles": ["112-3"]
+  },
+  {
+    "id": "q33",
+    "question": "Comment le PCG definit-il un stock ?",
+    "expected_articles": ["211-7"]
+  },
+  {
+    "id": "q34",
+    "question": "Que sont les charges constatees d'avance ?",
+    "expected_articles": ["211-8"]
+  },
+  {
+    "id": "q35",
+    "question": "Comment les actifs sont-ils evalues a leur date d'entree dans le patrimoine de l'entite ?",
+    "expected_articles": ["213-1"]
+  },
+  {
+    "id": "q36",
+    "question": "Dans quel cas un actif immobilise fait-il l'objet d'un amortissement ?",
+    "expected_articles": ["214-1"]
+  },
+  {
+    "id": "q37",
+    "question": "Qu'est-ce que le montant amortissable d'un actif ?",
+    "expected_articles": ["214-4"]
+  },
+  {
+    "id": "q38",
+    "question": "A quelle date commence l'amortissement d'un actif ?",
+    "expected_articles": ["214-12"]
+  },
+  {
+    "id": "q39",
+    "question": "Quand une entite doit-elle realiser un test de depreciation sur un actif ?",
+    "expected_articles": ["214-15"]
+  },
+  {
+    "id": "q40",
+    "question": "Les depreciations d'actifs peuvent-elles etre reprises au resultat ?",
+    "expected_articles": ["214-19"]
+  },
+  {
+    "id": "q41",
+    "question": "Qu'est-ce qu'un passif eventuel selon le PCG ?",
+    "expected_articles": ["321-6"]
+  },
+  {
+    "id": "q42",
+    "question": "Comment un passif eventuel est-il comptabilise dans les comptes annuels ?",
+    "expected_articles": ["322-5"]
+  },
+  {
+    "id": "q43",
+    "question": "Comment les provisions sont-elles evaluees a leur date d'entree ?",
+    "expected_articles": ["323-2"]
+  },
+  {
+    "id": "q44",
+    "question": "Comment sont comptabilisees les transactions assorties d'une clause de reserve de propriete ?",
+    "expected_articles": ["512-3"]
+  },
+  {
+    "id": "q45",
+    "question": "Qu'est-ce qu'un resultat exceptionnel selon le PCG ?",
+    "expected_articles": ["513-5"]
+  },
+  {
+    "id": "q46",
+    "question": "Que sont les impots, taxes et versements assimiles ?",
+    "expected_articles": ["514-1"]
+  },
+  {
+    "id": "q47",
+    "question": "Quels sont les principes de regularite, de sincerite et de prudence en comptabilite ?",
+    "expected_articles": ["121-3", "121-4"]
+  },
+  {
+    "id": "q48",
+    "question": "Quelle est la difference entre un actif immobilise a duree d'utilisation limitee et un actif a duree d'utilisation non limitee ?",
+    "expected_articles": ["214-1", "214-2"]
+  },
+  {
+    "id": "q49",
+    "question": "Quelle est la difference entre un passif et un passif eventuel ?",
+    "expected_articles": ["321-1", "321-6"]
+  },
+  {
+    "id": "q50",
+    "question": "Comment est determine le cout d'acquisition d'une immobilisation corporelle et d'une immobilisation incorporelle ?",
+    "expected_articles": ["213-8", "213-22"]
+  },
+  {
+    "id": "q51",
+    "question": "Comment est etabli et comptabilise le plan d'amortissement d'un actif a la cloture de l'exercice ?",
+    "expected_articles": ["214-11", "214-13"],
+    "primary_article": "214-13"
+  },
+  {
+    "id": "q52",
+    "question": "Quelles sont les conditions de comptabilisation d'un passif lors de sa naissance et a la cloture de l'exercice ?",
+    "expected_articles": ["322-1", "322-2"]
+  },
+  {
+    "id": "q53",
+    "question": "Comment sont comptabilises les ecarts de conversion sur les creances et les dettes en monnaies etrangeres ?",
+    "expected_articles": ["420-5", "420-8"],
+    "primary_article": "420-8"
+  },
+  {
+    "id": "q54",
+    "question": "Comment le PCG distingue-t-il la definition d'un actif de celle d'un passif ?",
+    "expected_articles": ["211-1", "321-1"]
+  },
+  {
+    "id": "q55",
+    "question": "Que comprend le cout des stocks selon le PCG ?",
+    "expected_articles": ["213-30", "213-31"],
+    "primary_article": "213-31"
+  },
+  {
+    "id": "q56",
+    "question": "Comment le PCG distingue-t-il les immobilisations incorporelles, les immobilisations corporelles et les stocks ?",
+    "expected_articles": ["211-5", "211-6", "211-7"]
+  },
+  {
+    "id": "q57",
+    "question": "Quelles sont les conditions d'inscription a l'actif d'une immobilisation et comment sont evalues les actifs a leur date d'entree dans le patrimoine ?",
+    "expected_articles": ["212-1", "213-1"]
+  },
+  {
+    "id": "q58",
+    "question": "Comment est determine le cout d'acquisition d'une immobilisation incorporelle acquise separement ?",
+    "expected_articles": ["213-22"]
+  },
+  {
+    "id": "q59",
+    "question": "Qu'est-ce que l'amortissement d'un actif, en tant que repartition systematique de son montant amortissable ?",
+    "expected_articles": ["214-13"]
+  },
+  {
+    "id": "q60",
+    "question": "A la cloture de l'exercice, comment est comptabilisee la dotation aux amortissements ?",
+    "expected_articles": ["214-11"]
+  },
+  {
+    "id": "q61",
+    "question": "A quelles conditions un passif est-il comptabilise a la cloture de l'exercice ?",
+    "expected_articles": ["322-2"]
+  },
+  {
+    "id": "q62",
+    "question": "Qu'est-ce qu'une dette selon le PCG ?",
+    "expected_articles": ["321-4"]
+  },
+  {
+    "id": "q63",
+    "question": "Un actif immobilise a duree d'utilisation non limitee fait-il l'objet d'un amortissement ?",
+    "expected_articles": ["214-2"]
+  },
+  {
+    "id": "q64",
+    "question": "Que comprend le cout de production des stocks ?",
+    "expected_articles": ["213-32"]
+  },
+  {
+    "id": "q65",
+    "question": "Comment sont reevaluees les provisions apres leur comptabilisation initiale, a la date de cloture ?",
+    "expected_articles": ["323-10"]
+  },
+  {
+    "id": "q66",
+    "question": "Comment sont converties en monnaie nationale les creances et les dettes libellees en devises etrangeres ?",
+    "expected_articles": ["420-5"]
+  },
+  {
+    "id": "q67",
+    "question": "Une entreprise achete un brevet qu'elle compte exploiter durablement mais qui n'a pas de forme physique. Comment ce bien est-il qualifie comptablement ?",
+    "expected_articles": ["211-5"]
+  },
+  {
+    "id": "q68",
+    "question": "Un camion appartenant a l'entreprise sera utilise pendant plusieurs annees dans son activite de transport. Dans quelle categorie comptable ce bien physique se range-t-il ?",
+    "expected_articles": ["211-6"]
+  },
+  {
+    "id": "q69",
+    "question": "Une entreprise loue un local avec une option de rachat a terme. Comment traite-t-elle comptablement les loyers verses, puis le bien si elle exerce son option d'achat ?",
+    "expected_articles": ["212-5"]
+  },
+  {
+    "id": "q70",
+    "question": "Un bien perd de la valeur car son etat s'est degrade plus vite que prevu. Comment ce phenomene est-il qualifie dans les comptes ?",
+    "expected_articles": ["214-5"]
+  },
+  {
+    "id": "q71",
+    "question": "Une entreprise doit regler une somme a un tiers dans le futur, mais elle ne connait ni la date exacte ni le montant exact. Comment ce type d'engagement est-il qualifie ?",
+    "expected_articles": ["321-5"]
+  },
+  {
+    "id": "q72",
+    "question": "Une societe connait precisement le montant qu'elle doit payer a un fournisseur ainsi que la date d'echeance. Comment cet engagement est-il qualifie ?",
+    "expected_articles": ["321-4"]
+  },
+  {
+    "id": "q73",
+    "question": "Une entreprise vend des marchandises regulierement dans le cadre de son activite principale. Comment appelle-t-on le montant total de ces ventes sur l'exercice ?",
+    "expected_articles": ["512-2"]
+  },
+  {
+    "id": "q74",
+    "question": "Un batiment industriel a une duree de vie previsible et finie. Son cout doit-il etre reparti sur cette duree, et comment appelle-t-on cette repartition ?",
+    "expected_articles": ["214-13"]
+  },
+  {
+    "id": "q75",
+    "question": "Un terrain n'a pas de limite previsible dans le temps quant a sa capacite a generer des avantages pour l'entreprise. Son cout fait-il l'objet d'une repartition systematique sur plusieurs exercices ?",
+    "expected_articles": ["214-2"]
+  },
+  {
+    "id": "q76",
+    "question": "Une entreprise detient de l'argent sur un compte bancaire libelle en dollars. A la fin de l'annee, comment ce montant est-il retraite dans les comptes exprimes en euros ?",
+    "expected_articles": ["420-7"]
+  },
+  {
+    "id": "q77",
+    "question": "Une societe a des salaries qui travaillent sur la production de biens qu'elle vendra plus tard, et qui ne sont pas encore vendus a la cloture. Comment le cout de leur travail est-il incorpore dans la valeur de ces biens ?",
+    "expected_articles": ["213-32"]
   }
 ]

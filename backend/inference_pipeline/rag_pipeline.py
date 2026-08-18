@@ -5,6 +5,15 @@ from generator import generate
 from reranker import rerank
 from retriever import retrieve
 
+# Cross-encoder rerank_score below which the top result is treated as "not
+# actually relevant" -- calibrated from eval/results/retrieval_eval_20260814T122645Z.json:
+# on that run, off-topic questions scored at most 0.0023 and on-topic questions
+# scored at least 0.0066 (bi+cross condition), so 0.005 sits in that gap.
+# Caveat: calibrated on only 10 off-topic questions -- revisit if production
+# traffic shows false rejects (relevant question blocked) or false positives
+# (off-topic question slips through).
+RERANK_MIN_SCORE = 0.005
+
 
 async def answer_query(
     pool: asyncpg.Pool,
@@ -19,6 +28,8 @@ async def answer_query(
 
     if use_reranker and chunks:
         chunks = rerank(query, chunks, top_k=top_k)
+        if chunks[0]["rerank_score"] < RERANK_MIN_SCORE:
+            chunks = []
 
     if not chunks:
         return {

@@ -1,0 +1,2341 @@
+{
+  "generated_at": "20260818T170934Z",
+  "results": [
+    {
+      "id": "q01",
+      "question": "Qu'est-ce qu'un actif selon le PCG ?",
+      "expected": [
+        "211-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-1",
+            "744-1",
+            "212-4",
+            "623-6",
+            "743-1"
+          ],
+          "top1_score": 0.6411478519439697
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "211-1",
+            "616-16",
+            "822-1",
+            "214-6",
+            "614-2"
+          ],
+          "top1_score": 0.7710100412368774
+        }
+      }
+    },
+    {
+      "id": "q02",
+      "question": "Comment le PCG definit-il un passif ?",
+      "expected": [
+        "321-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-1",
+            "322-1",
+            "321-2",
+            "616-7",
+            "624-5"
+          ],
+          "top1_score": 0.5789602994918823
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-1",
+            "615-5",
+            "615-6",
+            "624-5",
+            "322-1"
+          ],
+          "top1_score": 0.48973986506462097
+        }
+      }
+    },
+    {
+      "id": "q03",
+      "question": "Quelle est la definition d'une provision ?",
+      "expected": [
+        "321-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-5",
+            "313-1",
+            "420-6",
+            "322-8",
+            "323-2"
+          ],
+          "top1_score": 0.6983254731699555
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-5",
+            "313-1",
+            "322-8",
+            "324-1",
+            "420-6"
+          ],
+          "top1_score": 0.9951522350311279
+        }
+      }
+    },
+    {
+      "id": "q04",
+      "question": "Qu'est-ce que la depreciation d'un actif ?",
+      "expected": [
+        "214-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-5",
+            "214-15",
+            "214-17",
+            "745-8",
+            "625-7"
+          ],
+          "top1_score": 0.6755283861722485
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-5",
+            "214-15",
+            "214-2",
+            "214-16",
+            "214-25"
+          ],
+          "top1_score": 0.9352912902832031
+        }
+      }
+    },
+    {
+      "id": "q05",
+      "question": "Quelles sont les regles d'amortissement des immobilisations ?",
+      "expected": [
+        "214-13"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "613-4",
+            "214-13",
+            "213-17",
+            "214-14"
+          ],
+          "top1_score": 0.6752268865569313
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "613-4",
+            "1212",
+            "214-9",
+            "214-13",
+            "312-1"
+          ],
+          "top1_score": 0.9239766001701355
+        }
+      }
+    },
+    {
+      "id": "q06",
+      "question": "Qu'est-ce qu'une immobilisation incorporelle ?",
+      "expected": [
+        "211-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-5",
+            "618-2",
+            "611-2",
+            "211-6",
+            "613-3"
+          ],
+          "top1_score": 0.7138723901586312
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "211-5",
+            "611-2",
+            "213-3",
+            "613-4",
+            "212-1"
+          ],
+          "top1_score": 0.9999144077301025
+        }
+      }
+    },
+    {
+      "id": "q07",
+      "question": "Comment definir une immobilisation corporelle ?",
+      "expected": [
+        "211-6"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-6",
+            "211-5",
+            "212-7",
+            "213-21",
+            "618-10"
+          ],
+          "top1_score": 0.7090881640262519
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "211-6",
+            "213-3",
+            "212-1",
+            "213-1",
+            "212-7"
+          ],
+          "top1_score": 0.9981508851051331
+        }
+      }
+    },
+    {
+      "id": "q08",
+      "question": "Comment est comptabilise un contrat de credit-bail ?",
+      "expected": [
+        "212-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "212-5",
+            "836-4",
+            "836-3",
+            "1231-80"
+          ],
+          "top1_score": 0.6890521234838901
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "212-5",
+            "836-3",
+            "836-4",
+            "1231-80"
+          ],
+          "top1_score": 0.994834303855896
+        }
+      }
+    },
+    {
+      "id": "q09",
+      "question": "Comment le chiffre d'affaires est-il defini dans le PCG ?",
+      "expected": [
+        "512-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "512-2",
+            "832-18",
+            "213-34",
+            "622-4",
+            "213-7"
+          ],
+          "top1_score": 0.5610830187797546
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "512-2",
+            "832-18",
+            "622-3",
+            "622-4",
+            "811-5"
+          ],
+          "top1_score": 0.7201021313667297
+        }
+      }
+    },
+    {
+      "id": "q10",
+      "question": "Que comprennent les charges d'une entite ?",
+      "expected": [
+        "511-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "511-2",
+            "838-4",
+            "832-19",
+            "514-1",
+            "1213"
+          ],
+          "top1_score": 0.6659513514099894
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "511-2",
+            "512-1",
+            "112-3",
+            "838-5",
+            "838-4"
+          ],
+          "top1_score": 0.9922109842300415
+        }
+      }
+    },
+    {
+      "id": "q11",
+      "question": "Que comprennent les produits d'une entite ?",
+      "expected": [
+        "512-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "512-1",
+            "1213",
+            "821-2",
+            "112-3",
+            "710-2"
+          ],
+          "top1_score": 0.6407860135563616
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "512-1",
+            "112-3",
+            "1222",
+            "1213",
+            "836-1"
+          ],
+          "top1_score": 0.9824357032775879
+        }
+      }
+    },
+    {
+      "id": "q12",
+      "question": "Comment sont traites les ecarts de conversion des liquidites en devises ?",
+      "expected": [
+        "420-7"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "420-7",
+            "420-2",
+            "420-5",
+            "619-8",
+            "420-4"
+          ],
+          "top1_score": 0.6511908769607544
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "420-7",
+            "420-5",
+            "420-8",
+            "420-2",
+            "420-6"
+          ],
+          "top1_score": 0.7359901070594788
+        }
+      }
+    },
+    {
+      "id": "q13",
+      "question": "Quelle est la recette de la tarte tatin ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "822-1",
+            "619-5",
+            "821-1",
+            "420-5",
+            "619-19"
+          ],
+          "top1_score": 0.33379542819343366
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "832-5",
+            "811-12",
+            "821-1",
+            "822-2",
+            "822-1"
+          ],
+          "top1_score": 0.001996069448068738
+        }
+      }
+    },
+    {
+      "id": "q14",
+      "question": "Quelle est la capitale de l'Australie ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "822-1",
+            "834-2",
+            "821-1",
+            "311-1"
+          ],
+          "top1_score": 0.31697227752539414
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "832-5",
+            "821-1",
+            "832-1",
+            "822-1",
+            "1111-1"
+          ],
+          "top1_score": 0.0012324654962867498
+        }
+      }
+    },
+    {
+      "id": "q15",
+      "question": "Quelle est la difference entre l'amortissement et la depreciation d'un actif ?",
+      "expected": [
+        "214-13",
+        "214-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-13",
+            "214-1",
+            "745-9",
+            "214-14",
+            "214-17"
+          ],
+          "top1_score": 0.6689675647635731
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-13",
+            "214-2",
+            "214-17",
+            "214-12",
+            "214-1"
+          ],
+          "top1_score": 0.8835775852203369
+        }
+      }
+    },
+    {
+      "id": "q16",
+      "question": "Comment le PCG definit-il les immobilisations corporelles et incorporelles ?",
+      "expected": [
+        "211-5",
+        "211-6"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-6",
+            "213-21",
+            "211-5",
+            "213-1",
+            "212-7"
+          ],
+          "top1_score": 0.5401619350813676
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-1",
+            "213-3",
+            "212-1",
+            "821-1",
+            "211-5"
+          ],
+          "top1_score": 0.9030700922012329
+        }
+      }
+    },
+    {
+      "id": "q17",
+      "question": "Qu'est-ce qu'une dette et qu'est-ce qu'une provision dans la definition des passifs ?",
+      "expected": [
+        "321-4",
+        "321-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-4",
+            "321-5",
+            "324-1",
+            "321-1",
+            "615-5"
+          ],
+          "top1_score": 0.685732364654541
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-4",
+            "321-5",
+            "324-1",
+            "624-13",
+            "619-8"
+          ],
+          "top1_score": 0.9416500926017761
+        }
+      }
+    },
+    {
+      "id": "q18",
+      "question": "Que comprennent les charges et les produits d'une entite ?",
+      "expected": [
+        "511-2",
+        "512-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "511-2",
+            "512-1",
+            "1213",
+            "112-3",
+            "832-19"
+          ],
+          "top1_score": 0.6535688249129769
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "511-2",
+            "112-3",
+            "512-1",
+            "838-5",
+            "832-21"
+          ],
+          "top1_score": 0.9527379274368286
+        }
+      }
+    },
+    {
+      "id": "q19",
+      "question": "Comment sont converties et comptabilisees les creances et les dettes en monnaies etrangeres, ainsi que les liquidites en devises a la cloture ?",
+      "expected": [
+        "420-5",
+        "420-7"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "420-7",
+            "420-5",
+            "1011-1",
+            "420-2",
+            "420-4"
+          ],
+          "top1_score": 0.6689919829368591
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "420-5",
+            "420-7",
+            "322-6",
+            "420-8",
+            "1011-1"
+          ],
+          "top1_score": 0.9991912245750427
+        }
+      }
+    },
+    {
+      "id": "q20",
+      "question": "Quelles sont les conditions d'inscription a l'actif d'une immobilisation et comment un contrat de credit-bail est-il comptabilise ?",
+      "expected": [
+        "212-1",
+        "212-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "212-5",
+            "212-4",
+            "836-4",
+            "212-1",
+            "213-1"
+          ],
+          "top1_score": 0.7095377022303533
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "212-5",
+            "212-1",
+            "213-1",
+            "212-4",
+            "613-3"
+          ],
+          "top1_score": 0.9904177784919739
+        }
+      }
+    },
+    {
+      "id": "q21",
+      "question": "Quel est le meilleur restaurant gastronomique de Paris ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "811-12",
+            "1111-1",
+            "1214",
+            "1221-67",
+            "1011-5"
+          ],
+          "top1_score": 0.24064202718233907
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "832-1",
+            "811-12",
+            "1111-1",
+            "822-1",
+            "1221-67"
+          ],
+          "top1_score": 0.0006072517717257142
+        }
+      }
+    },
+    {
+      "id": "q22",
+      "question": "Comment programmer un jeu video en Python ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "613-7",
+            "322-9",
+            "611-1",
+            "622-6",
+            "613-2"
+          ],
+          "top1_score": 0.3961912871542206
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "821-1",
+            "611-1",
+            "611-3",
+            "1221-67",
+            "834-2"
+          ],
+          "top1_score": 0.00017817052139434963
+        }
+      }
+    },
+    {
+      "id": "q23",
+      "question": "Quelle est la population actuelle de la Chine ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "1221-67",
+            "629-4",
+            "834-2",
+            "615-12",
+            "832-5"
+          ],
+          "top1_score": 0.3682302393638802
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "821-1",
+            "832-5",
+            "822-1",
+            "1221-67",
+            "834-2"
+          ],
+          "top1_score": 0.002270142547786236
+        }
+      }
+    },
+    {
+      "id": "q24",
+      "question": "Comment reparer une fuite d'eau sous un evier ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "322-9",
+            "625-18",
+            "625-16",
+            "420-6",
+            "760-3"
+          ],
+          "top1_score": 0.46585745026380754
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "821-1",
+            "619-8",
+            "1231-80",
+            "623-12",
+            "621-9"
+          ],
+          "top1_score": 0.0002882176195271313
+        }
+      }
+    },
+    {
+      "id": "q25",
+      "question": "Qui a peint la Joconde ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "1221-67",
+            "811-12",
+            "629-4",
+            "619-18",
+            "834-2"
+          ],
+          "top1_score": 0.2372698799049997
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "832-5",
+            "811-12",
+            "1221-67",
+            "629-4",
+            "834-2"
+          ],
+          "top1_score": 0.0009667833219282329
+        }
+      }
+    },
+    {
+      "id": "q26",
+      "question": "Quel temps fait-il a Tunis aujourd'hui ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "420-5",
+            "615-5",
+            "515-1",
+            "420-4",
+            "420-3"
+          ],
+          "top1_score": 0.33549623681616214
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "822-1",
+            "1221-67",
+            "629-4",
+            "834-2",
+            "619-8"
+          ],
+          "top1_score": 2.6137096938327886e-05
+        }
+      }
+    },
+    {
+      "id": "q27",
+      "question": "Comment apprendre a jouer de la guitare rapidement ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "613-7",
+            "322-9",
+            "221-8",
+            "628-7",
+            "624-2"
+          ],
+          "top1_score": 0.3413178317560741
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "628-7",
+            "821-1",
+            "1221-67",
+            "629-4",
+            "628-11"
+          ],
+          "top1_score": 2.06766326300567e-05
+        }
+      }
+    },
+    {
+      "id": "q28",
+      "question": "Quelle est la vitesse de la lumiere dans le vide ?",
+      "expected": [],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "627-1",
+            "629-4",
+            "822-1",
+            "213-4",
+            "1221-67"
+          ],
+          "top1_score": 0.31239405274391174
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "821-1",
+            "822-1",
+            "821-2",
+            "836-4"
+          ],
+          "top1_score": 0.0004553239559754729
+        }
+      }
+    },
+    {
+      "id": "q29",
+      "question": "Comment le PCG definit-il le principe d'image fidele en comptabilite ?",
+      "expected": [
+        "121-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "121-5",
+            "121-3",
+            "121-4",
+            "623-7",
+            "623-10"
+          ],
+          "top1_score": 0.49481253310479345
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "121-1",
+            "121-3",
+            "623-7",
+            "121-5",
+            "623-10"
+          ],
+          "top1_score": 0.1915048360824585
+        }
+      }
+    },
+    {
+      "id": "q30",
+      "question": "Qu'est-ce que le principe de prudence en comptabilite ?",
+      "expected": [
+        "121-4"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "121-4",
+            "121-5",
+            "121-3",
+            "323-7",
+            "838-4"
+          ],
+          "top1_score": 0.6199746131896973
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "121-4",
+            "121-5",
+            "121-1",
+            "121-3",
+            "322-8"
+          ],
+          "top1_score": 0.5981848239898682
+        }
+      }
+    },
+    {
+      "id": "q31",
+      "question": "Qu'est-ce qu'une methode comptable selon le PCG ?",
+      "expected": [
+        "121-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "121-5",
+            "622-2",
+            "122-1",
+            "122-2"
+          ],
+          "top1_score": 0.5998552441596985
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "121-5",
+            "122-2",
+            "213-9",
+            "121-1"
+          ],
+          "top1_score": 0.881928563117981
+        }
+      }
+    },
+    {
+      "id": "q32",
+      "question": "Que recapitule le compte de resultat ?",
+      "expected": [
+        "112-3"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "112-3",
+            "811-3",
+            "811-2",
+            "1111-1",
+            "619-7"
+          ],
+          "top1_score": 0.7140063984386446
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "112-3",
+            "811-3",
+            "112-1",
+            "811-2",
+            "1141-2"
+          ],
+          "top1_score": 0.996626615524292
+        }
+      }
+    },
+    {
+      "id": "q33",
+      "question": "Comment le PCG definit-il un stock ?",
+      "expected": [
+        "211-7"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-7",
+            "214-22",
+            "615-12",
+            "213-35",
+            "616-16"
+          ],
+          "top1_score": 0.5666953414652999
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "211-7",
+            "616-16",
+            "212-1",
+            "618-10",
+            "214-22"
+          ],
+          "top1_score": 0.3773322105407715
+        }
+      }
+    },
+    {
+      "id": "q34",
+      "question": "Que sont les charges constatees d'avance ?",
+      "expected": [
+        "211-8"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-8",
+            "323-9",
+            "323-4",
+            "611-7",
+            "213-13"
+          ],
+          "top1_score": 0.8074298730576247
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "211-8",
+            "617-5",
+            "323-9",
+            "832-10",
+            "622-2"
+          ],
+          "top1_score": 0.9997488856315613
+        }
+      }
+    },
+    {
+      "id": "q35",
+      "question": "Comment les actifs sont-ils evalues a leur date d'entree dans le patrimoine de l'entite ?",
+      "expected": [
+        "213-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "221-1",
+            "213-1",
+            "323-11",
+            "221-5",
+            "744-1"
+          ],
+          "top1_score": 0.6895336282809272
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-1",
+            "221-1",
+            "221-5",
+            "323-11",
+            "744-1"
+          ],
+          "top1_score": 0.9983862638473511
+        }
+      }
+    },
+    {
+      "id": "q36",
+      "question": "Dans quel cas un actif immobilise fait-il l'objet d'un amortissement ?",
+      "expected": [
+        "214-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-1",
+            "214-13",
+            "214-14",
+            "613-4",
+            "214-9"
+          ],
+          "top1_score": 0.7119317479092937
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-1",
+            "214-2",
+            "214-14",
+            "214-9",
+            "214-17"
+          ],
+          "top1_score": 0.9995872378349304
+        }
+      }
+    },
+    {
+      "id": "q37",
+      "question": "Qu'est-ce que le montant amortissable d'un actif ?",
+      "expected": [
+        "214-4"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-4",
+            "214-13",
+            "214-1",
+            "214-14",
+            "214-17"
+          ],
+          "top1_score": 0.7343305349349976
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-4",
+            "214-13",
+            "214-17",
+            "214-14",
+            "214-9"
+          ],
+          "top1_score": 0.9997335076332092
+        }
+      }
+    },
+    {
+      "id": "q38",
+      "question": "A quelle date commence l'amortissement d'un actif ?",
+      "expected": [
+        "214-12"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-12",
+            "214-14",
+            "214-13",
+            "613-4",
+            "214-1"
+          ],
+          "top1_score": 0.7823048830032349
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-12",
+            "214-14",
+            "214-13",
+            "214-1"
+          ],
+          "top1_score": 0.9993657469749451
+        }
+      }
+    },
+    {
+      "id": "q39",
+      "question": "Quand une entite doit-elle realiser un test de depreciation sur un actif ?",
+      "expected": [
+        "214-15"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-15",
+            "613-7",
+            "214-2",
+            "743-3",
+            "625-11"
+          ],
+          "top1_score": 0.7121597700023801
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-15",
+            "214-2",
+            "613-7",
+            "214-16",
+            "214-1"
+          ],
+          "top1_score": 0.9835188388824463
+        }
+      }
+    },
+    {
+      "id": "q40",
+      "question": "Les depreciations d'actifs peuvent-elles etre reprises au resultat ?",
+      "expected": [
+        "214-19"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-17",
+            "214-15",
+            "745-4",
+            "214-19",
+            "625-7"
+          ],
+          "top1_score": 0.6194191801894211
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-19",
+            "822-2",
+            "745-8",
+            "214-5",
+            "751-2"
+          ],
+          "top1_score": 0.9033097624778748
+        }
+      }
+    },
+    {
+      "id": "q41",
+      "question": "Qu'est-ce qu'un passif eventuel selon le PCG ?",
+      "expected": [
+        "321-6"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-6",
+            "321-1",
+            "322-1",
+            "624-5",
+            "616-5"
+          ],
+          "top1_score": 0.6260078176255346
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-6",
+            "321-1",
+            "624-11",
+            "322-5",
+            "322-1"
+          ],
+          "top1_score": 0.3060566186904907
+        }
+      }
+    },
+    {
+      "id": "q42",
+      "question": "Comment un passif eventuel est-il comptabilise dans les comptes annuels ?",
+      "expected": [
+        "322-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "322-5",
+            "322-2",
+            "322-1",
+            "744-1",
+            "616-7"
+          ],
+          "top1_score": 0.6980105818503761
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "322-2",
+            "624-13",
+            "322-5",
+            "744-1",
+            "624-11"
+          ],
+          "top1_score": 0.6745153665542603
+        }
+      }
+    },
+    {
+      "id": "q43",
+      "question": "Comment les provisions sont-elles evaluees a leur date d'entree ?",
+      "expected": [
+        "323-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "323-4",
+            "323-11",
+            "323-10",
+            "751-3",
+            "313-1"
+          ],
+          "top1_score": 0.7040865211461059
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "323-11",
+            "323-2",
+            "313-1",
+            "323-10",
+            "751-3"
+          ],
+          "top1_score": 0.9597740769386292
+        }
+      }
+    },
+    {
+      "id": "q44",
+      "question": "Comment sont comptabilisees les transactions assorties d'une clause de reserve de propriete ?",
+      "expected": [
+        "512-3"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "512-3",
+            "223-2",
+            "223-1",
+            "628-3",
+            "628-18"
+          ],
+          "top1_score": 0.6621031559767232
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "512-3",
+            "1031-2",
+            "625-9",
+            "624-14",
+            "223-1"
+          ],
+          "top1_score": 0.9992440938949585
+        }
+      }
+    },
+    {
+      "id": "q45",
+      "question": "Qu'est-ce qu'un resultat exceptionnel selon le PCG ?",
+      "expected": [
+        "513-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "513-5",
+            "832-21",
+            "628-18",
+            "624-9"
+          ],
+          "top1_score": 0.5140345386246131
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "513-5",
+            "832-21",
+            "822-2",
+            "821-2"
+          ],
+          "top1_score": 0.6680497527122498
+        }
+      }
+    },
+    {
+      "id": "q46",
+      "question": "Que sont les impots, taxes et versements assimiles ?",
+      "expected": [
+        "514-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "514-1",
+            "1221-63",
+            "619-8",
+            "833-4",
+            "511-2"
+          ],
+          "top1_score": 0.7420596634114003
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "514-1",
+            "1221-63",
+            "1221",
+            "822-2",
+            "322-13"
+          ],
+          "top1_score": 0.9987038373947144
+        }
+      }
+    },
+    {
+      "id": "q47",
+      "question": "Quels sont les principes de regularite, de sincerite et de prudence en comptabilite ?",
+      "expected": [
+        "121-3",
+        "121-4"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "121-5",
+            "121-4",
+            "121-3",
+            "623-10"
+          ],
+          "top1_score": 0.5867458232196685
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "121-3",
+            "121-4",
+            "121-5",
+            "121-1",
+            "121-2"
+          ],
+          "top1_score": 0.2573213279247284
+        }
+      }
+    },
+    {
+      "id": "q48",
+      "question": "Quelle est la difference entre un actif immobilise a duree d'utilisation limitee et un actif a duree d'utilisation non limitee ?",
+      "expected": [
+        "214-1",
+        "214-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-2",
+            "214-1",
+            "211-5",
+            "613-3",
+            "211-6"
+          ],
+          "top1_score": 0.6525989770889282
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-2",
+            "214-1",
+            "821-1",
+            "613-4",
+            "211-6"
+          ],
+          "top1_score": 0.9421316981315613
+        }
+      }
+    },
+    {
+      "id": "q49",
+      "question": "Quelle est la difference entre un passif et un passif eventuel ?",
+      "expected": [
+        "321-1",
+        "321-6"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-6",
+            "322-5",
+            "321-1",
+            "624-5",
+            "322-1"
+          ],
+          "top1_score": 0.6219289528173844
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "322-5",
+            "321-6",
+            "321-1",
+            "624-11",
+            "624-5"
+          ],
+          "top1_score": 0.7332502603530884
+        }
+      }
+    },
+    {
+      "id": "q50",
+      "question": "Comment est determine le cout d'acquisition d'une immobilisation corporelle et d'une immobilisation incorporelle ?",
+      "expected": [
+        "213-22",
+        "213-8"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "213-22",
+            "213-8",
+            "213-1",
+            "420-1",
+            "213-17"
+          ],
+          "top1_score": 0.7423354694443381
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-8",
+            "213-1",
+            "420-1",
+            "213-22",
+            "213-3"
+          ],
+          "top1_score": 0.9923946857452393
+        }
+      }
+    },
+    {
+      "id": "q51",
+      "question": "Comment est etabli et comptabilise le plan d'amortissement d'un actif a la cloture de l'exercice ?",
+      "expected": [
+        "214-11",
+        "214-13"
+      ],
+      "primary_article": "214-13",
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-11",
+            "214-13",
+            "214-14",
+            "214-9",
+            "745-9"
+          ],
+          "top1_score": 0.7342747231043987
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-11",
+            "214-13",
+            "832-1",
+            "214-14",
+            "214-9"
+          ],
+          "top1_score": 0.9912126660346985
+        }
+      }
+    },
+    {
+      "id": "q52",
+      "question": "Quelles sont les conditions de comptabilisation d'un passif lors de sa naissance et a la cloture de l'exercice ?",
+      "expected": [
+        "322-1",
+        "322-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "322-2",
+            "322-1",
+            "624-5",
+            "616-16",
+            "322-4"
+          ],
+          "top1_score": 0.7003318280080508
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "322-2",
+            "616-16",
+            "513-4",
+            "624-13",
+            "323-10"
+          ],
+          "top1_score": 0.9787145256996155
+        }
+      }
+    },
+    {
+      "id": "q53",
+      "question": "Comment sont comptabilises les ecarts de conversion sur les creances et les dettes en monnaies etrangeres ?",
+      "expected": [
+        "420-5",
+        "420-8"
+      ],
+      "primary_article": "420-8",
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "420-5",
+            "420-7",
+            "420-2",
+            "619-8",
+            "420-8"
+          ],
+          "top1_score": 0.6812901699927503
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "420-5",
+            "322-6",
+            "420-8",
+            "420-7",
+            "420-2"
+          ],
+          "top1_score": 0.9937214851379395
+        }
+      }
+    },
+    {
+      "id": "q54",
+      "question": "Comment le PCG distingue-t-il la definition d'un actif de celle d'un passif ?",
+      "expected": [
+        "211-1",
+        "321-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "744-1",
+            "322-1",
+            "112-2",
+            "624-5",
+            "321-2"
+          ],
+          "top1_score": 0.5633752866536077
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "616-16",
+            "623-4",
+            "112-2",
+            "321-1",
+            "623-6"
+          ],
+          "top1_score": 0.309678852558136
+        }
+      }
+    },
+    {
+      "id": "q55",
+      "question": "Que comprend le cout des stocks selon le PCG ?",
+      "expected": [
+        "213-30",
+        "213-31"
+      ],
+      "primary_article": "213-31",
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "213-30",
+            "213-32",
+            "213-34",
+            "213-35",
+            "213-31"
+          ],
+          "top1_score": 0.616631672783895
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-30",
+            "213-32",
+            "213-31",
+            "214-24",
+            "213-34"
+          ],
+          "top1_score": 0.9710549712181091
+        }
+      }
+    },
+    {
+      "id": "q56",
+      "question": "Comment le PCG distingue-t-il les immobilisations incorporelles, les immobilisations corporelles et les stocks ?",
+      "expected": [
+        "211-5",
+        "211-6",
+        "211-7"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "213-21",
+            "213-1",
+            "212-1",
+            "211-5",
+            "618-10"
+          ],
+          "top1_score": 0.6283982021571288
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-1",
+            "214-25",
+            "212-1",
+            "213-3",
+            "211-5"
+          ],
+          "top1_score": 0.9424737095832825
+        }
+      }
+    },
+    {
+      "id": "q57",
+      "question": "Quelles sont les conditions d'inscription a l'actif d'une immobilisation et comment sont evalues les actifs a leur date d'entree dans le patrimoine ?",
+      "expected": [
+        "212-1",
+        "213-1"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "221-1",
+            "213-1",
+            "212-1",
+            "212-4",
+            "613-3"
+          ],
+          "top1_score": 0.70049162504127
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-1",
+            "221-1",
+            "212-1",
+            "221-5",
+            "213-3"
+          ],
+          "top1_score": 0.9972540736198425
+        }
+      }
+    },
+    {
+      "id": "q58",
+      "question": "Comment est determine le cout d'acquisition d'une immobilisation incorporelle acquise separement ?",
+      "expected": [
+        "213-22"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "213-22",
+            "213-8",
+            "420-1",
+            "213-7",
+            "221-1"
+          ],
+          "top1_score": 0.7482282669408176
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-22",
+            "213-1",
+            "213-8",
+            "420-1",
+            "213-3"
+          ],
+          "top1_score": 0.9975945353507996
+        }
+      }
+    },
+    {
+      "id": "q59",
+      "question": "Qu'est-ce que l'amortissement d'un actif, en tant que repartition systematique de son montant amortissable ?",
+      "expected": [
+        "214-13"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-13",
+            "214-12",
+            "214-9",
+            "214-14",
+            "214-11"
+          ],
+          "top1_score": 0.7814412843322003
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-13",
+            "214-4",
+            "214-14",
+            "214-12",
+            "214-9"
+          ],
+          "top1_score": 0.9999170303344727
+        }
+      }
+    },
+    {
+      "id": "q60",
+      "question": "A la cloture de l'exercice, comment est comptabilisee la dotation aux amortissements ?",
+      "expected": [
+        "214-11"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-11",
+            "745-9",
+            "214-13",
+            "832-1",
+            "619-8"
+          ],
+          "top1_score": 0.8009357689695634
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-11",
+            "832-1",
+            "624-14",
+            "745-9",
+            "214-8"
+          ],
+          "top1_score": 0.9997069239616394
+        }
+      }
+    },
+    {
+      "id": "q61",
+      "question": "A quelles conditions un passif est-il comptabilise a la cloture de l'exercice ?",
+      "expected": [
+        "322-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "322-2",
+            "322-1",
+            "616-16",
+            "322-4",
+            "322-5"
+          ],
+          "top1_score": 0.7426905853358089
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "322-2",
+            "616-16",
+            "616-7",
+            "624-14",
+            "619-8"
+          ],
+          "top1_score": 0.9995952248573303
+        }
+      }
+    },
+    {
+      "id": "q62",
+      "question": "Qu'est-ce qu'une dette selon le PCG ?",
+      "expected": [
+        "321-4"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-4",
+            "322-7",
+            "619-18",
+            "625-13",
+            "832-15"
+          ],
+          "top1_score": 0.6308597766328169
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-4",
+            "619-18",
+            "322-7",
+            "832-15",
+            "625-13"
+          ],
+          "top1_score": 0.4261731803417206
+        }
+      }
+    },
+    {
+      "id": "q63",
+      "question": "Un actif immobilise a duree d'utilisation non limitee fait-il l'objet d'un amortissement ?",
+      "expected": [
+        "214-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-1",
+            "214-2",
+            "613-4",
+            "214-13"
+          ],
+          "top1_score": 0.7559888362884575
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-2",
+            "214-1",
+            "214-14",
+            "214-13",
+            "214-9"
+          ],
+          "top1_score": 0.9998425245285034
+        }
+      }
+    },
+    {
+      "id": "q64",
+      "question": "Que comprend le cout de production des stocks ?",
+      "expected": [
+        "213-32"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "213-32",
+            "213-30",
+            "213-31",
+            "213-35",
+            "615-12"
+          ],
+          "top1_score": 0.7082654585521867
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-32",
+            "213-30",
+            "213-31",
+            "214-24",
+            "618-10"
+          ],
+          "top1_score": 0.9994992017745972
+        }
+      }
+    },
+    {
+      "id": "q65",
+      "question": "Comment sont reevaluees les provisions apres leur comptabilisation initiale, a la date de cloture ?",
+      "expected": [
+        "323-10"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "323-10",
+            "323-4",
+            "323-11",
+            "624-14",
+            "313-1"
+          ],
+          "top1_score": 0.6836880037970553
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "323-10",
+            "624-14",
+            "619-8",
+            "625-13",
+            "313-1"
+          ],
+          "top1_score": 0.947079598903656
+        }
+      }
+    },
+    {
+      "id": "q66",
+      "question": "Comment sont converties en monnaie nationale les creances et les dettes libellees en devises etrangeres ?",
+      "expected": [
+        "420-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "420-5",
+            "420-7",
+            "420-2",
+            "1011-1",
+            "420-4"
+          ],
+          "top1_score": 0.6176355665217511
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "420-5",
+            "420-2",
+            "420-8",
+            "420-7",
+            "1011-1"
+          ],
+          "top1_score": 0.994345486164093
+        }
+      }
+    },
+    {
+      "id": "q67",
+      "question": "Une entreprise achete un brevet qu'elle compte exploiter durablement mais qui n'a pas de forme physique. Comment ce bien est-il qualifie comptablement ?",
+      "expected": [
+        "211-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "622-1",
+            "212-1",
+            "821-1",
+            "213-4",
+            "619-11"
+          ],
+          "top1_score": 0.5296494960784912
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-4",
+            "821-1",
+            "212-1",
+            "213-1",
+            "213-20"
+          ],
+          "top1_score": 0.022174667567014694
+        }
+      }
+    },
+    {
+      "id": "q68",
+      "question": "Un camion appartenant a l'entreprise sera utilise pendant plusieurs annees dans son activite de transport. Dans quelle categorie comptable ce bien physique se range-t-il ?",
+      "expected": [
+        "211-6"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "211-6",
+            "212-1",
+            "619-10",
+            "1213",
+            "213-21"
+          ],
+          "top1_score": 0.5465708319460393
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-21",
+            "211-6",
+            "1213",
+            "212-1",
+            "836-4"
+          ],
+          "top1_score": 0.006645310670137405
+        }
+      }
+    },
+    {
+      "id": "q69",
+      "question": "Une entreprise loue un local avec une option de rachat a terme. Comment traite-t-elle comptablement les loyers verses, puis le bien si elle exerce son option d'achat ?",
+      "expected": [
+        "212-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "212-5",
+            "622-2",
+            "745-4",
+            "619-10",
+            "745-6"
+          ],
+          "top1_score": 0.6073646183392644
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "212-5",
+            "622-2",
+            "628-13",
+            "628-7",
+            "822-2"
+          ],
+          "top1_score": 0.06572103500366211
+        }
+      }
+    },
+    {
+      "id": "q70",
+      "question": "Un bien perd de la valeur car son etat s'est degrade plus vite que prevu. Comment ce phenomene est-il qualifie dans les comptes ?",
+      "expected": [
+        "214-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-5",
+            "214-17",
+            "322-9",
+            "625-11",
+            "613-5"
+          ],
+          "top1_score": 0.5957628970428828
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-16",
+            "214-15",
+            "214-5",
+            "613-5",
+            "214-17"
+          ],
+          "top1_score": 0.3828537166118622
+        }
+      }
+    },
+    {
+      "id": "q71",
+      "question": "Une entreprise doit regler une somme a un tiers dans le futur, mais elle ne connait ni la date exacte ni le montant exact. Comment ce type d'engagement est-il qualifie ?",
+      "expected": [
+        "321-5"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-5",
+            "622-4",
+            "838-4",
+            "321-4",
+            "322-8"
+          ],
+          "top1_score": 0.5684260983213137
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-5",
+            "321-1",
+            "322-8",
+            "321-6",
+            "628-1"
+          ],
+          "top1_score": 0.19560426473617554
+        }
+      }
+    },
+    {
+      "id": "q72",
+      "question": "Une societe connait precisement le montant qu'elle doit payer a un fournisseur ainsi que la date d'echeance. Comment cet engagement est-il qualifie ?",
+      "expected": [
+        "321-4"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "321-4",
+            "838-9",
+            "836-2",
+            "322-7",
+            "832-15"
+          ],
+          "top1_score": 0.6329953451749899
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "321-4",
+            "611-3",
+            "836-1",
+            "322-7",
+            "838-9"
+          ],
+          "top1_score": 0.432868093252182
+        }
+      }
+    },
+    {
+      "id": "q73",
+      "question": "Une entreprise vend des marchandises regulierement dans le cadre de son activite principale. Comment appelle-t-on le montant total de ces ventes sur l'exercice ?",
+      "expected": [
+        "512-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "821-2",
+            "615-17",
+            "512-2",
+            "618-11",
+            "832-18"
+          ],
+          "top1_score": 0.6093075275421143
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "821-2",
+            "512-2",
+            "822-1",
+            "822-2",
+            "1213"
+          ],
+          "top1_score": 0.7361018657684326
+        }
+      }
+    },
+    {
+      "id": "q74",
+      "question": "Un batiment industriel a une duree de vie previsible et finie. Son cout doit-il etre reparti sur cette duree, et comment appelle-t-on cette repartition ?",
+      "expected": [
+        "214-13"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "213-20",
+            "617-6",
+            "213-21",
+            "213-10",
+            "213-15"
+          ],
+          "top1_score": 0.5370984513432271
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "213-32",
+            "214-13",
+            "213-33",
+            "617-6",
+            "213-10"
+          ],
+          "top1_score": 0.010572293773293495
+        }
+      }
+    },
+    {
+      "id": "q75",
+      "question": "Un terrain n'a pas de limite previsible dans le temps quant a sa capacite a generer des avantages pour l'entreprise. Son cout fait-il l'objet d'une repartition systematique sur plusieurs exercices ?",
+      "expected": [
+        "214-2"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "621-9",
+            "617-2",
+            "624-14",
+            "214-2",
+            "213-33"
+          ],
+          "top1_score": 0.5477915675764351
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-2",
+            "613-2",
+            "618-12",
+            "613-6",
+            "213-33"
+          ],
+          "top1_score": 0.08348315954208374
+        }
+      }
+    },
+    {
+      "id": "q76",
+      "question": "Une entreprise detient de l'argent sur un compte bancaire libelle en dollars. A la fin de l'annee, comment ce montant est-il retraite dans les comptes exprimes en euros ?",
+      "expected": [
+        "420-7"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "420-7",
+            "1011-1",
+            "811-4",
+            "619-8",
+            "420-5"
+          ],
+          "top1_score": 0.591162288715704
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "1011-1",
+            "420-8",
+            "420-5",
+            "420-4",
+            "811-7"
+          ],
+          "top1_score": 0.022550584748387337
+        }
+      }
+    },
+    {
+      "id": "q77",
+      "question": "Une societe a des salaries qui travaillent sur la production de biens qu'elle vendra plus tard, et qui ne sont pas encore vendus a la cloture. Comment le cout de leur travail est-il incorpore dans la valeur de ces biens ?",
+      "expected": [
+        "213-32"
+      ],
+      "primary_article": null,
+      "conditions": {
+        "A_bi_only": {
+          "articles": [
+            "214-23",
+            "615-17",
+            "323-9",
+            "624-14",
+            "311-1"
+          ],
+          "top1_score": 0.5815302133560181
+        },
+        "C_bi_plus_cross": {
+          "articles": [
+            "214-24",
+            "213-18",
+            "214-23",
+            "624-14",
+            "512-1"
+          ],
+          "top1_score": 0.14912155270576477
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "A_bi_only": {
+      "recall@1": 0.7761194029850746,
+      "mrr": 0.8296019900497513,
+      "recall@5": 0.8930348258706468,
+      "ndcg@5": 0.8502354944014684,
+      "on_topic_top1_avg": 0.6548018634295465,
+      "off_topic_top1": {
+        "q13": 0.33379542819343366,
+        "q14": 0.31697227752539414,
+        "q21": 0.24064202718233907,
+        "q22": 0.3961912871542206,
+        "q23": 0.3682302393638802,
+        "q24": 0.46585745026380754,
+        "q25": 0.2372698799049997,
+        "q26": 0.33549623681616214,
+        "q27": 0.3413178317560741,
+        "q28": 0.31239405274391174
+      }
+    },
+    "C_bi_plus_cross": {
+      "recall@1": 0.7910447761194029,
+      "mrr": 0.8517412935323384,
+      "recall@5": 0.9154228855721394,
+      "ndcg@5": 0.8711814019229429,
+      "on_topic_top1_avg": 0.7511295940337787,
+      "off_topic_top1": {
+        "q13": 0.001996069448068738,
+        "q14": 0.0012324654962867498,
+        "q21": 0.0006072517717257142,
+        "q22": 0.00017817052139434963,
+        "q23": 0.002270142547786236,
+        "q24": 0.0002882176195271313,
+        "q25": 0.0009667833219282329,
+        "q26": 2.6137096938327886e-05,
+        "q27": 2.06766326300567e-05,
+        "q28": 0.0004553239559754729
+      }
+    }
+  }
+}

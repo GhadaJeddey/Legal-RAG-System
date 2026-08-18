@@ -70,30 +70,3 @@ async def retrieve(pool: asyncpg.Pool, query: str, top_k: int = 5) -> list[dict]
         }
         for rank, row in enumerate(rows, start=1)
     ]
-
-
-async def retrieve_all(pool: asyncpg.Pool) -> list[dict]:
-    """Return every chunk in the corpus, unranked (no embedding/similarity involved).
-
-    Used to feed the cross-encoder the whole corpus directly, to measure the
-    quality ceiling of cross-encoder-only scoring (no dense pre-filtering).
-    """
-    rows = await pool.fetch(
-        """
-        SELECT text_content, article_number, article_title, breadcrumb,
-               sub_chunk, sub_chunk_total
-        FROM chunks
-        """
-    )
-
-    return [
-        {
-            "text": row["text_content"],
-            "article_number": row["article_number"],
-            "article_title": row["article_title"],
-            "breadcrumb": row["breadcrumb"],
-            "sub_chunk": row["sub_chunk"],
-            "sub_chunk_total": row["sub_chunk_total"],
-        }
-        for row in rows
-    ]
