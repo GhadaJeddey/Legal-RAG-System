@@ -6,13 +6,14 @@
 models:
   - name: llama-3.3-70b-versatile
     provider: groq
-    current: true
+    current: false
     context_window: 128K tokens
     open_weight: true
     notes: >
-      Current default. Strong general-purpose instruction following, good
-      multilingual/French support. Dense model, not MoE, so "70B" is the
-      actual compute cost per token -- more than this grounded-QA task
+      Decommissioned by Groq (returns 404 as of 2026-08-18) -- no longer
+      selectable as current. Strong general-purpose instruction following,
+      good multilingual/French support. Dense model, not MoE, so "70B" is
+      the actual compute cost per token -- more than this grounded-QA task
       likely needs.
 
   - name: llama-3.1-8b-instant
@@ -38,12 +39,14 @@ models:
 
   - name: openai/gpt-oss-120b
     provider: groq
-    current: false
+    current: true
     context_window: 128K tokens
     open_weight: true
     notes: >
       Larger sibling of gpt-oss-20b. Fallback if the 20B underperforms on
       quality, still MoE-efficient relative to a dense model of similar size.
+      Set current after llama-3.3-70b-versatile was decommissioned by Groq
+      (2026-08-18) -- confirmed available via GET /openai/v1/models.
 
   - name: moonshotai/kimi-k2-instruct
     provider: groq
