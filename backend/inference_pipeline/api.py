@@ -23,7 +23,7 @@ from config.embedding_models import get_current_model as get_current_embedding_m
 from config.llm_models import get_current_model as get_current_llm_model
 from generator import GROQ_BASE_URL
 
-from rag_pipeline import answer_query
+from rag_pipeline import answer_query, search_lexical
 from full_pipeline import run_pipeline, _set_document_status
 
 load_dotenv()
@@ -60,6 +60,7 @@ app.add_middleware(
 class QueryRequest(BaseModel):
     query: str
     top_k: int = 5
+    mode: str = "semantic"  # "semantic" (dense + reranker + LLM) | "keyword" (lexical search only)
     conversation_id: str | None = None  # reserved for future multi-turn support, unused for now
 
 
@@ -74,6 +75,18 @@ class Source(BaseModel):
 class QueryResponse(BaseModel):
     answer: str
     sources: list[Source]
+
+
+class LexicalSource(BaseModel):
+    rank_lexical: int
+    article_number: str | None
+    article_title: str | None
+    text: str
+    rank_score: float
+
+
+class LexicalSearchResponse(BaseModel):
+    sources: list[LexicalSource]
 
 
 class DocumentOut(BaseModel):
@@ -242,8 +255,12 @@ async def get_document_chunks(document_id: int):
     return [dict(row) for row in rows]
 
 
-@app.post("/query", response_model=QueryResponse)
-async def query(request: QueryRequest) -> QueryResponse:
+@app.post("/query", response_model=QueryResponse | LexicalSearchResponse)
+async def query(request: QueryRequest) -> QueryResponse | LexicalSearchResponse:
+    if request.mode == "keyword":
+        result = await search_lexical(pool=app.state.pool, query=request.query, top_k=request.top_k)
+        return LexicalSearchResponse(**result)
+
     result = await answer_query(
         pool=app.state.pool,
         query=request.query,

@@ -70,3 +70,39 @@ async def retrieve(pool: asyncpg.Pool, query: str, top_k: int = 5) -> list[dict]
         }
         for rank, row in enumerate(rows, start=1)
     ]
+
+
+async def retrieve_lexical(pool: asyncpg.Pool, query: str, top_k: int = 5) -> list[dict]:
+    """Keyword search over chunks using PostgreSQL full-text search (no embeddings involved).
+
+    Ranks by ts_rank against the `search_vector` column (generated from text_content,
+    French text-search config). Rows that don't match any query term are excluded
+    entirely by the `@@` match, unlike the dense search which always returns top_k.
+    """
+    rows = await pool.fetch(
+        """
+        SELECT text_content, article_number, article_title, breadcrumb,
+               sub_chunk, sub_chunk_total,
+               ts_rank(search_vector, query) AS rank
+        FROM chunks, plainto_tsquery('french', $1) query
+        WHERE search_vector @@ query
+        ORDER BY rank DESC
+        LIMIT $2
+        """,
+        query,
+        top_k,
+    )
+
+    return [
+        {
+            "rank_lexical": rank,
+            "text": row["text_content"],
+            "article_number": row["article_number"],
+            "article_title": row["article_title"],
+            "breadcrumb": row["breadcrumb"],
+            "sub_chunk": row["sub_chunk"],
+            "sub_chunk_total": row["sub_chunk_total"],
+            "rank_score": float(row["rank"]),
+        }
+        for rank, row in enumerate(rows, start=1)
+    ]

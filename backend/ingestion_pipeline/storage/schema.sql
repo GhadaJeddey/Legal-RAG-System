@@ -47,3 +47,10 @@ DROP INDEX IF EXISTS chunks_unique_idx;
 CREATE UNIQUE INDEX chunks_unique_idx
     ON chunks (document_id, breadcrumb, article_number, COALESCE(sub_chunk, -1), model_name);
 
+-- Lexical (keyword) search support: generated tsvector kept in sync automatically,
+-- indexed with GIN for fast full-text lookups via the /query "keyword" mode.
+ALTER TABLE chunks ADD COLUMN IF NOT EXISTS search_vector tsvector
+    GENERATED ALWAYS AS (to_tsvector('french', text_content)) STORED;
+
+CREATE INDEX IF NOT EXISTS chunks_search_vector_idx ON chunks USING GIN (search_vector);
+

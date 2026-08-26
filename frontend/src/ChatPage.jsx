@@ -6,6 +6,7 @@ function ChatPage() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState("semantic");
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -36,15 +37,22 @@ function ChatPage() {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query, top_k: 5 }),
+        body: JSON.stringify({ query, top_k: 5, mode }),
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
       const data = await res.json();
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", text: data.answer, sources: data.sources },
-      ]);
+      if (mode === "keyword") {
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", mode: "keyword", results: data.sources },
+        ]);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", text: data.answer, sources: data.sources },
+        ]);
+      }
     } catch (err) {
       setMessages((prev) => [
         ...prev,
@@ -57,41 +65,90 @@ function ChatPage() {
 
   return (
     <div className="chat-app">
-      {messages.length > 0 && (
-        <div className="chat-toolbar">
+      <div className="chat-toolbar">
+        <div className="mode-toggle" role="tablist" aria-label="Mode de recherche">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "semantic"}
+            className={`mode-button ${mode === "semantic" ? "active" : ""}`}
+            onClick={() => setMode("semantic")}
+          >
+            Analyse IA
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "keyword"}
+            className={`mode-button ${mode === "keyword" ? "active" : ""}`}
+            onClick={() => setMode("keyword")}
+          >
+            Mot-clé
+          </button>
+        </div>
+
+        {messages.length > 0 && (
           <button type="button" className="reset-button" onClick={resetConversation}>
             Nouvelle conversation
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="chat-window">
         {messages.length === 0 && !loading && (
           <div className="empty-state">
-            Pose une question sur le Plan Comptable Général.
-            <br />
-            Exemple : « Qu'est-ce qu'une provision ? »
+            {mode === "semantic" ? (
+              <>
+                Pose une question sur le Plan Comptable Général.
+                <br />
+                Exemple : « Qu'est-ce qu'une provision ? »
+              </>
+            ) : (
+              <>
+                Cherche un mot ou une expression dans le PCG.
+                <br />
+                Exemple : « provision pour risques »
+              </>
+            )}
           </div>
         )}
 
         {messages.map((m, i) => (
           <div key={i} className={`message ${m.role}`}>
-            <div className="bubble">
-              <p>{m.text}</p>
-              {m.sources && m.sources.length > 0 && (
-                <div className="sources">
-                  {m.sources.map((s) => (
-                    <span
-                      className="source-chip"
-                      key={s.article_number}
-                      title={`${s.article_title ?? ""} -- pertinence ${Math.round(s.similarity * 100)}%`}
-                    >
-                      Art. {s.article_number}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
+            {m.mode === "keyword" ? (
+              <div className="bubble keyword-results">
+                {m.results.length === 0 ? (
+                  <p>Aucun résultat pour cette recherche.</p>
+                ) : (
+                  m.results.map((r) => (
+                    <div className="keyword-result" key={`${r.article_number}-${r.rank_lexical}`}>
+                      <div className="keyword-result-header">
+                        <span className="source-chip">Art. {r.article_number}</span>
+                        {r.article_title && <span className="keyword-result-title">{r.article_title}</span>}
+                      </div>
+                      <p>{r.text}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+            ) : (
+              <div className="bubble">
+                <p>{m.text}</p>
+                {m.sources && m.sources.length > 0 && (
+                  <div className="sources">
+                    {m.sources.map((s) => (
+                      <span
+                        className="source-chip"
+                        key={s.article_number}
+                        title={`${s.article_title ?? ""} -- pertinence ${Math.round(s.similarity * 100)}%`}
+                      >
+                        Art. {s.article_number}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         ))}
 
@@ -114,7 +171,7 @@ function ChatPage() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Pose une question sur le PCG..."
+          placeholder={mode === "semantic" ? "Pose une question sur le PCG..." : "Cherche un mot-clé dans le PCG..."}
           disabled={loading}
         />
         <button type="submit" disabled={loading || !input.trim()}>

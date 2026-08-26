@@ -3,7 +3,7 @@
 import asyncpg
 from generator import generate
 from reranker import rerank
-from retriever import retrieve
+from retriever import retrieve, retrieve_lexical
 
 # Cross-encoder rerank_score below which the top result is treated as "not
 # actually relevant" -- calibrated from eval/results/retrieval_eval_20260814T122645Z.json:
@@ -13,6 +13,25 @@ from retriever import retrieve
 # traffic shows false rejects (relevant question blocked) or false positives
 # (off-topic question slips through).
 RERANK_MIN_SCORE = 0.005
+
+
+async def search_lexical(pool: asyncpg.Pool, query: str, top_k: int = 5) -> dict:
+    """Keyword mode: pure full-text search, no embeddings and no LLM call --
+    returns the matching excerpts as-is so the user can read them directly."""
+    chunks = await retrieve_lexical(pool, query, top_k=top_k)
+
+    sources = [
+        {
+            "rank_lexical": c["rank_lexical"],
+            "article_number": c["article_number"],
+            "article_title": c["article_title"],
+            "text": c["text"],
+            "rank_score": c["rank_score"],
+        }
+        for c in chunks
+    ]
+
+    return {"sources": sources}
 
 
 async def answer_query(
